@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavProduct } from 'store/reducers/user';
 import { RootState } from 'store';
 import { ProductTypeList } from 'types';
+import Image from "next/image";
 
 const ProductItem = ({ discount, images, id, name, price, currentPrice }: ProductTypeList) => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const ProductItem = ({ discount, images, id, name, price, currentPrice }: Produc
 
         <Link href={`/product/${id}`}>
           <a>
-            <img src={images ? images[0] : ''} alt="product" />
+            <Image layout="fill" src={images ? images[0] : ''} alt="product" />
             {discount && 
               <span className="product__discount">{discount}%</span>
             }

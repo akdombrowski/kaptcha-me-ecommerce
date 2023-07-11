@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useSelector } from 'react-redux';
 
 const CheckoutItems = () => {
@@ -6,10 +7,10 @@ const CheckoutItems = () => {
   return (
     <ul className="checkout-items">
       {cartItems.map(item => (
-        <li className="checkout-item">
+        <li key={item.id} className="checkout-item">
           <div className="checkout-item__content">
             <div className="checkout-item__img">
-              <img src={item.thumb} />
+              <Image width="400" height="400" src={item.thumb} alt={item.name} />
             </div>
 
             <div className="checkout-item__data">
@@ -21,8 +22,8 @@ const CheckoutItems = () => {
         </li>
       ))}
     </ul>
-  )
+  );
 };
 
-  
-export default CheckoutItems
+
+export default CheckoutItems;
